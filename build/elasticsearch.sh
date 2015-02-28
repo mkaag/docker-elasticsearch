@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
-set -e
 
-/opt/elasticsearch/bin/elasticsearch
+set -eo pipefail
+
+echo "[elasticsearch] starting elasticsearch service..."
+exec /opt/elasticsearch/bin/elasticsearch
