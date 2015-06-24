@@ -16,7 +16,9 @@ This repository contains the **Dockerfile** and the configuration files of [Elas
 
 ### Usage
 
-   TODO once stable
-   
-### Customization
-   TODO once stable
+```bash
+docker run -d -p 9200:9200 -p 9300:9300 \
+-v /opt/apps/es:/app \
+mkaag/elasticsearch
+```
+
