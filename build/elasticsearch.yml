@@ -13,4 +13,6 @@ http:
   cors.allow-origin: "/.*/"
   cors.enabled: true
 
-script.disable_dynamic: true
+script:
+  inline: on
+  indexed: on

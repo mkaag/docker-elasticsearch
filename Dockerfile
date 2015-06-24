@@ -4,7 +4,7 @@ MAINTAINER Maurice Kaag <mkaag@me.com>
 # -----------------------------------------------------------------------------
 # Environment variables
 # -----------------------------------------------------------------------------
-ENV ES_VERSION    1.4.4
+ENV ES_VERSION    1.6.0
 ENV JAVA_VERSION  8
 
 # -----------------------------------------------------------------------------
@@ -31,13 +31,13 @@ RUN \
 # -----------------------------------------------------------------------------
 # Post-install
 # -----------------------------------------------------------------------------
+ADD build/elasticsearch.yml /opt/elasticsearch/config/elasticsearch.yml
+ADD build/logging.yml /opt/elasticsearch/config/logging.yml
+
 RUN \
   elasticsearch/bin/plugin -i lmenezes/elasticsearch-kopf && \
   elasticsearch/bin/plugin -i elasticsearch/marvel/latest && \
   elasticsearch/bin/plugin -i mobz/elasticsearch-head
-
-ADD build/elasticsearch.yml /opt/elasticsearch/config/elasticsearch.yml
-ADD build/logging.yml /opt/elasticsearch/config/logging.yml
 
 RUN mkdir /etc/service/elasticsearch
 ADD build/elasticsearch.sh /etc/service/elasticsearch/run
